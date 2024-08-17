@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        html::-webkit-scrollbar {
+            display: none;
+        }
+
+        input:focus {
+            outline: none;
+        }
+    </style>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"
+          rel="stylesheet" />
+
+    <!-- MDB -->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>EstateAgency Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/assets/img/favicon.png" rel="icon">
+    <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ======= Property Search Section ======= -->
+    <div class="click-closed"></div>
+
+    <!-- ======= Header/Navbar ======= -->
+    <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+        <div class="container">
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a class="navbar-brand text-brand" asp-controller="Home" asp-action="UserDashboard">ToDo<span class="color-b">List</span></a>
+
+            <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+                <ul class="navbar-nav" style="position:relative;left:45%;">
+                    <li class="nav-item">
+                        <a class="nav-link " asp-controller="Home" asp-action="UpdateProfiles">UpdateProfile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " asp-controller="Home" asp-action="Logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </nav><!-- End Header/Navbar -->
+
+
+
+    <main id="main" style="position:relative;top:130px;">
+        <section class="vh-100" style="background-color: white;">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col col-xl-10">
+
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+
+                                <h6 class="mb-3">Awesome Todo List</h6>
+
+                                <form class="d-flex justify-content-center align-items-center mb-4" method="post" id="form1">
+                                    <div class="form-outline flex-fill">
+                                        <input type="text" id="form3" class="form-control form-control-lg" required name="TaskData"/>
+                                        <input type="datetime-local" id="form3" class="form-control form-control-lg"  name="TaskTime"/>
+                                        <label class="form-label" for="form3">What do you need to do today?</label><br />
+                                        <button type="submit" class="btn btn-primary btn-lg ms-2" name="addtasks">Add</button>
+                                      @*  <label style="color:green;font-family:'Comic Sans MS';font-size:x-large;">@ViewBag.Message</label>*@
+                                   </div>                              
+                                </form>
+
+                                <ul class="list-group mb-0">
+                                    @foreach (var item in ViewBag.Display)
+                                    {
+                                        <form id="form2"  method="post">
+                                            <li class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2">
+                                                <div class="d-flex align-items-center">
+                                                    <input type="text" value="@item.taskshow" required style="background:none;border:none;" name="Updatetask"/>
+                                                <input type="datetime-local" value="@item.TaskTDime"  style="background:none;border:none;" name="UpdatetaskTime" />
+                                                </div>
+                                            <button type="submit" value="@item.taskId" data-mdb-toggle="tooltip" style="background:none;border:none;" name="tasdID">
+                                                <i class="fa fa-pencil" style="color:orange;"></i>
+                                            </button>
+                                            <button type="submit" value="@item.taskId" data-mdb-toggle="tooltip" style="background:none;border:none;" name="deletetask">
+                                                <i class="fas fa-times text-primary" style="color:red;"></i>
+                                            </button>
+                                            </li>
+                                        </form>
+                                    }
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+
+</html>
